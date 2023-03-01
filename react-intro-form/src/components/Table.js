@@ -12,7 +12,7 @@
  * td -> table cell
  */
 
- import React, { Component } from "react";
+ import React from "react";
 
  /*
  create two simple function components to make
@@ -27,6 +27,7 @@
                  <th>Title</th>
                  <th>Actors</th>
                  <th>Plot</th>
+                 <th>Genre</th>
                  <th>IMDB Rating</th>
                  <th>Director</th>
                  <th>Year</th>
