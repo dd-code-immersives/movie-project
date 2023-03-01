@@ -1,9 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 import Table from './components/Table'
+import MovieForm from './components/MovieForm';
+import { useState } from 'react';
 
 function App() {
-  const movies = [
+
+
+
+  const moviesData = [
 		{
 			title: "The Godfather",
 			actors: ["Marlon Brando", "Al Pacino", "James Caan"],
@@ -105,10 +110,30 @@ function App() {
 			dateAdded: new Date().toISOString(),
 		},
 	];
+
+  //we make a hook for movies into the state
+  // because we are in a function
+  const [movies, setMovies] = useState(moviesData);
+
+  const addMovie = (movie) => {
+     setMovies([...movies, movie]);
+  }
+
+  const removeMovie = (toDelIdx) => {
+    const filteredMovies = movies.filter((_, index) => {
+       return index !== toDelIdx
+    })
+    setMovies(filteredMovies)
+  }
+
   return (
  <div className="App">
   <Table 
      movies={movies}
+     removeMovie={removeMovie}
+  />
+  <MovieForm 
+    addMovie={addMovie}
   />
 </div>
   );

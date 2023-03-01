@@ -19,9 +19,6 @@
  our table code more readable
  */
  
- 
- 
- 
  //TABLE HEADER SIMPLE COMPONENT
  const TableHeader = () => {
      return (
@@ -58,7 +55,7 @@
            <td>{row.director}</td>
            <td>{row.year}</td>
            <td>{row.dateAdded}</td>
-           {/* <td><button onClick={() => props.removeCharacter(index)}> Delete</button></td> */}
+          <td><button onClick={() => props.removeMovie(index)}> Delete</button></td> 
          </tr>
        )
      })
@@ -69,7 +66,8 @@
  const Table = (props) => {
 
     const { 
-      movies
+      movies,
+      removeMovie
     } = props;
 
     return ( 
@@ -77,6 +75,7 @@
         <TableHeader/>
         <TableBody 
           data={movies} 
+          removeMovie={removeMovie}
         />
       </table>
     )
