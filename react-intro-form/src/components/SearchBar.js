@@ -13,10 +13,6 @@ function SearchBar(props){
         props.filterMovies(input, field);
     } 
 
-    const handleReset = () => {
-        props.resetSearch();
-    }
-
     return (
         <form onSubmit={handleOnSubmit}>
             <label htmlFor="search">Search :</label>
@@ -57,9 +53,6 @@ function SearchBar(props){
             <br/>
             <button type="submit">
                 Search
-            </button>
-            <button type="submit" onClick={handleReset}>
-                Reset
             </button>
         </form>
     );
